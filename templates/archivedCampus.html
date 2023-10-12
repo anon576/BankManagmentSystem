@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="nvb">
+    <h4>Attendance List</h4>
+    
+  </div>
+  
+        <table class="table tl">
+        <caption>
+          <!-- <div><a href="/download/" style="color: gray;text-decoration: none;" id="downloadBtn">Download Excel</a>
+          </div>
+            <a href="/delateCampus/" style="text-decoration: none;color: gray;">Delate Campus</a> -->
+        </caption>
+          <thead>
+            <tr>
+    
+              <th scope="col">Campus</th>
+              <th scope="col">Date</th>
+              <th scope="col">IT</th>
+              <th scope="col">CSD</th>
+              <th scope="col">CSE</th>
+              <th scope="col">AIML</th>
+              <th scope="col">CT</th>
+              <th scope="col">AIDS</th>
+              <th scope="col">ME</th>
+              <th scope="col">CE</th>
+              <th scope="col">EL</th>
+              <th scope="col">EE</th>
+              <th scope="col">ETC</th>
+              <th scope="col">IIOT</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for ca,d in zp %}
+                <tr>
+                
+                    <td>{{ca.name}}</td>
+                    <td>{{ca.date}}</td>
+                    <td>{{d["IT"]['present']}}</td>
+                    <td>{{d["CSD"]['present']}}</td>
+                    <td>{{d["CSE"]['present']}}</td>
+                    <td>{{d["AIML"]['present']}}</td>
+                    <td>{{d["CT"]['present']}}</td>
+                    <td>{{d["AIDS"]['present']}}</td>
+                    <td>{{d["ME"]['present']}}</td>
+                    <td>{{d["CE"]['present']}}</td>
+                    <td>{{d["EL"]['present']}}</td>
+                    <td>{{d["EE"]['present']}}</td>
+                    <td>{{d["ETC"]['present']}}</td>
+                    <td>{{d["IIOT"]['present']}}</td>
+                    <td>{{d["clg"]['present']}}</td>
+                  </tr>
+                {% endfor %}
+            
+           
+  
+           
+       
+          </tbody>
+        </table>
+{% endblock body %}

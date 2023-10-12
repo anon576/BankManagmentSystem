@@ -1,0 +1,35 @@
+
+{% extends 'layout.html' %}
+{% block body %}
+
+<div style="margin: 25vh 25vw;">
+    <h2>Add Subadmin or Coordinator</h2>
+    <form action="/subadmin" method="post" >
+        <div class="mb-3">
+            <label for="role" class="form-label">Select Role:</label>
+	<select class="form-select" id="category" name="role">
+             <option value="subadmin">Manager</option>
+                <option value="cor">Employee</option>
+        </select>
+        </div>
+       
+        <div class="mb-3">
+
+            <label class="form-label" for="name">Name:</label>
+            <input class="form-control" type="text" id="name" name="name" required>
+        </div>
+
+<div class="mb-3">
+
+            <label class="form-label" for="id">ID:</label>
+            <input class="form-control" type="text" id="name" name="id" required>
+        </div>
+
+<div class="mb-3">
+<labelclass="form-label" for="password">Password:</label>
+            <input class="form-control" type="password" id="password" name="password" required>
+</div>
+        <button class="btn btn-primary" type="submit">Add Manager/Employee</button>
+    </form>
+</div>
+    {% endblock body  %}

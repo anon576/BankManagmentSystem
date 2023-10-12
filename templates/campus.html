@@ -1,0 +1,150 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div style="margin: 25vh 25vw;">
+  <h2>Create Account</h2>
+  <form action="/createCampus" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="name">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" name="email">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Mobile NO</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="mno">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Pan Card</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="pancard">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Adhar Card</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="adharcard">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Adress</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="adress">
+    </div>
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Account Type:</label>
+      <select class="form-select" id="category" name="type">
+        <option value="Current">Current</option>
+        <option value="Savings">Savings</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">DOB</label>
+      <input type="date" class="form-control" id="exampleFormControlInput1" name="date">
+    </div>
+   
+
+      
+    <div class="mb-3">
+      <label for="id" class="form-label">Campus:</label>
+      <select class="form-select" id="campus" name="campus" required>
+        <option value="" disabled selected>Select Campus</option>
+        {% for campus in campus %}
+        <option value="{{ campus.name }}">{{ campus.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Deposit</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="depo">
+    </div>
+
+
+    <button class="btn btn-primary" type="submit">Apply</button>
+    <!-- <div class="mb-3">
+            <label for="name" class="form-label">Select Role:</label>
+	<select class="form-select" id="category" name="role">
+            <option  value="subadmin">Subadmin</option>
+            <option value="Coordinator">Coordinator</option>
+        </select>
+        </div>
+        <div class="mb-3">
+            <label for="id" class="form-label">Campus:</label>
+             <select class="form-select" id="campus" name="campus" required>
+                <option  value="" disabled selected>Select Campus</option>
+                {% for campus in campus %}
+                    <option  value="{{ campus.name }}">{{ campus.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+ <label class="form-label" for="admin_id">Admin ID:</label>
+            <select class="form-select" id="aid" name="admin_id" required>
+                
+            </select>
+
+ </div>
+        <div class="mb-3">
+
+            <label class="form-label" for="date">Date:</label>
+            <input class="form-control" type="date" id="date" name="date" required>
+        </div>
+<div class="mb-3">
+<labe class="form-label" for="file">Upload XLS File:</label>
+            <input class="form-control" type="file" id="file" name="file" accept=".xls, .xlsx" required>
+</div>
+        <button class="btn btn-primary" type="submit">Add Subadmin</button>
+    </form>
+</div>
+   -->
+
+   <script>
+    // JavaScript code to update the second select based on the first select
+    let sub = "{{subadmin|safe}}"
+    sub = sub.slice(1,sub.length-1)
+    sub = sub.split(", ")
+    // console.log(sub)
+
+
+    let coo = "{{coordinator|safe}}"
+    coo = coo.slice(1,coo.length-1)
+    coo = coo.split(", ")
+   
+    document.getElementById('category').addEventListener('change', function() {
+        const category = this.value;
+        const itemSelect = document.getElementById('aid');
+
+        // Clear existing options
+        itemSelect.innerHTML = '';
+
+        // Add options based on the selected category
+        if (category === 'subadmin') {
+           
+            
+           
+            for (const fruit of sub) {
+                const option = document.createElement('option');
+                option.value = fruit.slice(1,fruit.length-1);
+                option.textContent = fruit.slice(1,fruit.length-1);
+                itemSelect.appendChild(option);
+            }
+        } else if (category === 'Coordinator') {
+            const vegetables = [];
+
+           
+            for (const veggie of coo) {
+                const option = document.createElement('option');
+                option.value = veggie.slice(1,veggie.length-1);
+                option.textContent = veggie.slice(1,veggie.length-1);
+                itemSelect.appendChild(option);
+            }
+        }
+    });
+</script> 
+    {% endblock body %}

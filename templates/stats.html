@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+<div class="nvb">
+  <h4>Customer List</h4>
+  
+</div>
+
+      <table class="table tl">
+   
+        <thead>
+          <tr>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Account No</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Issue</th>
+         
+          </tr>
+        </thead>
+        <tbody>
+     
+          {% for as in a %}
+          <tr>
+           
+              <td>{{ as.name}}</td>
+              <td><a >{{as.acno }}</a></td>
+              <td><a >{{as.Balance}}</a></td>
+              <td><a href="/t/{{as.acno}}" >None</a></td>
+              <!-- <td><a None</td> -->
+            
+          </tr>
+          {% endfor %}
+          
+         
+
+         
+     
+        </tbody>
+      </table>
+   
+
+{% endblock body  %}

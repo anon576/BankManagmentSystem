@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div style="margin: 25vh 25vw;">
+    <h2>Add Branch</h2>
+    <form action="/addCampus" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Branch Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="id" class="form-label">IFSC:</label>
+            <input  class="form-control" type="text" id="id" name="pack" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="id" class="form-label">No of Employee:</label>
+            <input  class="form-control" type="text" id="id" name="no" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="date">Date:</label>
+            <input class="form-control" type="date" id="date" name="date" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Add Branch</button>
+    </form>
+</div>
+{% endblock body %}

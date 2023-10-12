@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="nvb">
+    <h4>Sub Admin List</h4>
+    
+  </div>
+  
+        <table class="table tl">
+        <caption>
+          <!-- <div><a href="/download/" style="color: gray;text-decoration: none;" id="downloadBtn">Download Excel</a>
+          </div>
+            <a href="/delateCampus/" style="text-decoration: none;color: gray;">Delate Campus</a> -->
+        </caption>
+          <thead>
+            <tr>
+    
+              <th scope="col">S.N</th>
+              <th scope="col">Name</th>
+              <th scope="col">ID</th>
+              <th scope="col">Campus</th>
+              <th scope="col">Password</th>
+            </tr>
+          </thead>
+          <tbody>
+                {% for admin in admins %}
+                <tr>
+                
+                    <td>{{admin.sno}}</td>
+                    <td>{{admin.name}}</td>
+                    <td>{{admin.loginid}}</td>
+                    <td>{{admin.campus}}</td>
+                    <td>{{admin.password}}</td>
+                    
+                  </tr>
+                {% endfor %}
+            
+           
+  
+           
+       
+          </tbody>
+        </table>
+{% endblock body %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="static/s.css">
+</head>
+<body>
+    <h1>Transaction History</h1>
+    {% for tr in t %}
+        {{tr}}
+    {% endfor %}
+    <!-- <table>
+        <tr>
+            <th>Transaction Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+        {% for tr in t %}
+        <tr>
+            <td>{{ tr }}</td>
+           
+        </tr>
+        {% endfor %}
+    </table> -->
+</body>
+</html>

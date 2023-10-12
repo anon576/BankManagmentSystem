@@ -1,0 +1,60 @@
+
+{% extends 'layout.html' %}
+{% block body %}
+
+       
+        <i class="fas fa-user-cog"></i>
+      </div>
+      
+   
+      <div class="nvb">
+        <h4 class="nvb">Branch</h4>
+        {% for cam in campus %}
+        {% if loop.index <= 4 %}
+        
+          <div class="card nc" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{cam.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{cam.ifsc}}</h6>
+                <p class="card-text">
+                 
+                    <li>Total Employee : {{cam.noofemployee}}</li>
+                    
+              
+                  
+                </p>
+                <a style="text-decoration: none;color: gray;" href="/veiwStats/{{ cam.name }}" class="card-link">View Stats</a>
+               
+              </div>
+            
+
+          </div>
+        {% endif %}
+      {% endfor %}
+      <h4 class="nvb">Branches</h4>
+      <table class="table tl">
+        
+        <thead>
+          <tr>
+            <th scope="col">SN</th>
+            <th scope="col">Branch</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i  in range(4,campus|length) %}
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{campus[i].name}}</td>
+            <td>{{campus[i].date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+                  
+   
+
+      
+
+ 
+    {% endblock body  %}
